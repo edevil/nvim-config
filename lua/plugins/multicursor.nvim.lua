@@ -10,42 +10,23 @@ return {
 
       -- Add cursors above/below the main cursor.
       vim.keymap.set({ "n", "v" }, "<c-s-up>", function()
-        mc.addCursor("k")
+        mc.lineAddCursor(-1)
       end)
       vim.keymap.set({ "n", "v" }, "<c-s-down>", function()
-        mc.addCursor("j")
+        mc.lineAddCursor(1)
       end)
 
       -- Add a cursor and jump to the next word under cursor.
       vim.keymap.set({ "n", "v" }, "<c-n>", function()
-        mc.addCursor("*")
+        mc.matchAddCursor(1)
       end)
 
-      -- Jump to the next word under cursor but do not add a cursor.
-      vim.keymap.set({ "n", "v" }, "<c-s>", function()
-        mc.skipCursor("*")
+      -- Add a cursor and jump to the next selection.
+      vim.keymap.set({ "n", "v" }, "<c-b>", function()
+        mc.matchAddCursor(-1)
       end)
 
-      -- Rotate the main cursor.
-      -- vim.keymap.set({ "n", "v" }, "<left>", mc.nextCursor)
-      -- vim.keymap.set({ "n", "v" }, "<right>", mc.prevCursor)
-
-      -- Delete the main cursor.
-      -- vim.keymap.set({ "n", "v" }, "<leader>x", mc.deleteCursor)
-
-      -- Add and remove cursors with control + left click.
-      -- vim.keymap.set("n", "<c-leftmouse>", mc.handleMouse)
-
-      -- vim.keymap.set({ "n", "v" }, "<c-q>", function()
-      --   if mc.cursorsEnabled() then
-      --     -- Stop other cursors from moving.
-      --     -- This allows you to reposition the main cursor.
-      --     mc.disableCursors()
-      --   else
-      --     mc.addCursor()
-      --   end
-      -- end)
-
+      -- Delete cursors
       vim.keymap.set("n", "<c-s-enter>", function()
         if not mc.cursorsEnabled() then
           mc.enableCursors()
@@ -55,12 +36,6 @@ return {
           -- Default <esc> handler.
         end
       end)
-
-      -- Align cursor columns.
-      -- vim.keymap.set("n", "<leader>a", mc.alignCursors)
-
-      -- Split visual selections by regex.
-      -- vim.keymap.set("v", "S", mc.splitCursors)
 
       -- Append/insert for each line of visual selections.
       vim.keymap.set("v", "I", mc.insertVisual)
