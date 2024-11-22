@@ -11,6 +11,10 @@ return {
             .. "?at={_A.REV}"
             .. "#{_A.LSTART}"
             .. "{(_A.LEND > _A.LSTART and ('-' .. _A.LEND) or '')}",
+          ["^gitlab.cfdata.org$"] = "https://gitlab.cfdata.org/{_A.ORG}/{_A.REPO}/-/blob/"
+            .. "{_A.REV}/{_A.FILE}"
+            .. "#L{_A.LSTART}"
+            .. "{(_A.LEND > _A.LSTART and ('-' .. _A.LEND) or '')}",
         },
       },
     }
