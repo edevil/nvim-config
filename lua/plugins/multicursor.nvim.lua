@@ -23,7 +23,7 @@ return {
 
       -- Add a cursor and jump to the next selection.
       vim.keymap.set({ "n", "v" }, "<c-b>", function()
-        mc.matchAddCursor(-1)
+        mc.matchAddCursor(1)
       end)
 
       -- Delete cursors
