@@ -25,6 +25,7 @@ return {
   opts = {
     window = {
       mappings = {
+        ["t"] = "none",
         ["tf"] = "telescope_find",
         ["tg"] = "telescope_grep",
       },
