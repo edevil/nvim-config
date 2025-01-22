@@ -9,6 +9,7 @@ return {
         default = { "lsp", "buffer" },
         cmdline = {},
       }
+      opts.completion.list = { selection = { preselect = false, auto_insert = false } }
     end,
   },
 }
