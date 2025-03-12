@@ -4,3 +4,4 @@
 
 vim.o.title = true
 vim.o.titlestring = '%{fnamemodify(getcwd(), ":t")}->>%{expand("%:t")}'
+vim.o.relativenumber = false
