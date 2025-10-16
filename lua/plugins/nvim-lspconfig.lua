@@ -7,6 +7,10 @@ return {
           settings = {
             gopls = {
               buildFlags = { "-tags=integration" },
+              analyses = {
+                -- ST1003 corresponds to the staticcheck analysis for 'Package name should be lower-case'
+                ST1003 = false,
+              },
             },
           },
         },
